@@ -105,6 +105,7 @@ Le **Data Binding** permet de lier les données entre le modèle (classe TS) et 
 `ngModel` permet la **liaison bidirectionnelle** (two-way binding) :  
 - La valeur du champ HTML se met à jour automatiquement si la variable TS change  
 - La variable TS se met à jour automatiquement si l’utilisateur modifie le champ HTML  
-
+![Texte alternatif](./images/ngModule.PNG)
+![Texte alternatif](./images/ngModules.PNG)
 ---
 
