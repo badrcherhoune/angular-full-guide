@@ -97,6 +97,7 @@ Le **Data Binding** permet de lier les données entre le modèle (classe TS) et 
 - Logique, validations et état centralisés dans le code  
 - Idéal pour des formulaires complexes ou dynamiques  
 
+![Texte alternatif](./images/Reactives_forms.PNG)
 ---
 
 ## 10. Directive ngModel
