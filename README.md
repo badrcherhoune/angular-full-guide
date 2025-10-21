@@ -32,9 +32,8 @@ Modifient l'apparence ou le comportement d'un élément :
 - `[disabled]` → Active/désactive un élément HTML
 
 ## 5) 🔹 [hidden] vs *ngIf
-```html
 <div [hidden]="!isVisible">Caché mais présent dans le DOM</div>
-```html
+
 ## 6)🔹 Pipes
 
 Outil qui transforme/formate les données avant affichage :
