@@ -76,8 +76,11 @@ Le **Data Binding** permet de lier les données entre le modèle (classe TS) et 
 - **Interpolation** (`{{ }}`) → afficher des données dans le template  
 ![Texte alternatif](./images/interpolation.PNG)
 - **Property Binding** (`[property]="value"`) → lier des propriétés HTML à des variables TS  
+![Texte alternatif](./images/Property_Binding.PNG)
 - **Event Binding** (`(event)="method()"`) → lier des événements du template à des méthodes TS  
+![Texte alternatif](./images/event _binding.PNG)
 - **Two-way Binding** (`[(ngModel)]="variable"`) → synchroniser automatiquement la vue et le modèle  
+![Texte alternatif](./images/tow-way_binding.PNG)
 
 ---
 
@@ -86,6 +89,8 @@ Le **Data Binding** permet de lier les données entre le modèle (classe TS) et 
 - Formulaire construit dans le HTML  
 - Angular lit les directives (`ngModel`) pour la liaison et la validation  
 - Idéal pour des formulaires simples  
+
+![Texte alternatif](./images/template-driven-forms.PNG)
 
 ### Reactive Forms
 - Formulaire construit dans la classe TS avec `FormGroup` et `FormControl`  
