@@ -74,7 +74,7 @@ Chaque application Angular a :
 ## 8. Data Binding
 Le **Data Binding** permet de lier les données entre le modèle (classe TS) et la vue (template HTML) :  
 - **Interpolation** (`{{ }}`) → afficher des données dans le template  
-![Texte alternatif](./images/interpolation.png)
+![Texte alternatif](./images/interpolation.PNG)
 - **Property Binding** (`[property]="value"`) → lier des propriétés HTML à des variables TS  
 - **Event Binding** (`(event)="method()"`) → lier des événements du template à des méthodes TS  
 - **Two-way Binding** (`[(ngModel)]="variable"`) → synchroniser automatiquement la vue et le modèle  
