@@ -80,7 +80,8 @@ Le **Data Binding** permet de lier les données entre le modèle (classe TS) et 
 - **Event Binding** (`(event)="method()"`) → lier des événements du template à des méthodes TS  
 ![Texte alternatif](./images/event _binding.PNG)
 - **Two-way Binding** (`[(ngModel)]="variable"`) → synchroniser automatiquement la vue et le modèle  
-![Texte alternatif](./images/tow-way_binding.PNG)
+
+![Texte alternatif](./images/tow-way-binding.PNG)
 
 ---
 
