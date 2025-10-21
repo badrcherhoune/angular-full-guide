@@ -1,74 +1,76 @@
-1)
-Angular est un framework front-end basé sur TypeScript, développé par Google.
-Il permet de créer des applications web modernes de type Single Page Application (SPA) avec une architecture modulaire, des composants réutilisables et une gestion efficace du data binding, du routing et des services.
-2)
-AngularJS utilise JavaScript et une architecture MVC. Angular moderne utilise TypeScript, est basé sur des composants, est plus performant, et offre une CLI puissante et une modularité avancée pour construire des SPA.
-3)
-Un composant Angular est une classe TS avec @Component() qui regroupe template, logique et styles, et contrôle une partie autonome de l’interface utilisateur.
-4)
-Le décorateur @Component() sert à définir une classe TypeScript comme composant Angular.
-Il permet de regrouper la logique (TS), le template (HTML) et les styles (CSS/SCSS) en une unité autonome et réutilisable.
-Il définit également des attributs importants comme le selector (nom de la balise HTML), le template/templateUrl, les styles/styleUrls, les providers, les animations, l’encapsulation et la stratégie de détection des changements.
+1) 🧱 Structure d’un composant Angular
+
+Un composant se compose de trois éléments principaux :
+
+Fichier TypeScript (.ts) → Contient la logique du composant.
+
+Fichier HTML (.html) → Contient le template (la vue).
+
+Fichier CSS (.css ou .scss) → Contient le style associé.
+
+2) 🔹 @Input() : permet au parent d’envoyer des données à son enfant.
+🔹 @Output() : permet à l’enfant d’envoyer des événements ou données à son parent.
+
+3)🔹 @ViewChild() : permet d’accéder à un élément ou composant enfant présent dans le template du composant lui-même (dans son propre HTML).
+
+🔹 @ContentChild() : permet d’accéder à un élément ou composant passé depuis l’extérieur via le contenu projeté (<ng-content>).
+
+👉 En résumé :
+
+@ViewChild() → élément dans le template interne du composant.
+
+@ContentChild() → élément dans le contenu inséré depuis le parent.
+
+4)🔹 Une directive structurelle est une directive Angular qui modifie la structure du DOM, c’est-à-dire qu’elle ajoute, supprime ou manipule des éléments HTML dans la page.
+
+📘 Exemples de directives structurelles intégrées :
+
+*ngIf → affiche ou masque un élément selon une condition.
+
+*ngFor → répète un élément pour chaque item d’une liste.
+
+*ngSwitch → affiche un élément selon une valeur donnée.
+
+🔹 Une directive d’attribut est une directive Angular qui modifie l’apparence ou le comportement d’un élément HTML existant, sans changer la structure du DOM.
+
+📘 Exemples de directives d’attribut intégrées :
+
+[ngClass] → ajoute ou retire des classes CSS dynamiquement.
+
+[ngStyle] → applique des styles CSS dynamiquement.
+
+[disabled] → active ou désactive un élément HTML.
+
 5)
-Un module Angular (NgModule) est une unité logique qui regroupe des composants, directives, pipes et services liés entre eux.
-Il sert à organiser l’application en parties modulaires et réutilisables.
-Chaque application Angular a au moins un module racine (AppModule) et peut avoir des modules fonctionnels (SharedModule, FeatureModule, etc.) pour mieux structurer le code.
+[hidden]
 
-Points clés :
-**************
+C’est une directive d’attribut.
 
-Déclaration (declarations) → liste des composants, directives et pipes du module.
+Elle masque l’élément via CSS (display: none) mais l’élément reste dans le DOM.
 
-Imports (imports) → autres modules nécessaires pour ce module.
+Exemple :
 
-Exports (exports) → éléments du module accessibles à d’autres modules.
+<div [hidden]="!isVisible">Je suis caché mais toujours dans le DOM</div>
 
-Providers (providers) → services disponibles pour ce module.
 
-Bootstrap (bootstrap) → composant principal à lancer au démarrage (dans le module racine).
-
-app.module.ts est le module racine qui organise tous les composants et services de l’application et définit le composant principal à lancer.
+⚠️ Inconvénient : l’élément est toujours présent et peut affecter la performance si utilisé massivement.
 
 6)
-BrowserModule → utilisé dans le module racine pour lancer l’application dans le navigateur.
+🔹 Un Pipe dans Angular est un outil qui transforme ou formate des données avant leur affichage dans le template.
 
-CommonModule → utilisé dans les modules enfants pour accéder aux directives de base comme *ngIf et *ngFor.
+Par exemple : convertir une date, mettre du texte en majuscules, formater un nombre ou une devise.
 
-💡 Astuce : BrowserModule contient déjà CommonModule, donc on ne l’importe pas dans les modules enfants.
+7)Pipe impur
 
-7)
-main.ts est le point d’entrée de l’application Angular et sert à lancer le module racine (AppModule) dans le navigateur.
+Angular l’exécute à chaque cycle de détection de changement, même si la valeur n’a pas changé.
 
-8)
-Le Data Binding dans Angular est le mécanisme qui permet de lier les données entre le modèle (classe TypeScript) et la vue (template HTML).
-Il permet de mettre à jour automatiquement l’interface utilisateur lorsque les données changent, et inversement, selon le type de binding utilisé.
+Utile pour les objets ou tableaux modifiés sans changer la référence.
 
-Types de Data Binding :
+Exemple :
 
-Interpolation ({{ }}) → pour afficher des données dans le template.
+@Pipe({ name: 'filter', pure: false }) // pipe impur
 
-Property Binding ([property]="value") → pour lier des propriétés HTML à des variables TS.
+8)Composant = directive + template + style
+Directive = logique qui agit sur un élément existant sans template
 
-Event Binding ((event)="method()") → pour lier les événements du template à des méthodes TS.
-
-Two-way Binding ([(ngModel)]="variable") → pour synchroniser automatiquement la vue et le modèle.
-
-9)
-Template-Driven Forms :
-
-Le formulaire est construit dans le HTML. Angular lit les directives (ngModel) pour gérer la liaison et la validation.
-Idéal pour des formulaires simples et rapides à mettre en place.
-
-Reactive Forms :
-
-Le formulaire est construit dans la classe TypeScript avec FormGroup et FormControl.
-La logique, les validations et l’état du formulaire sont centralisés et contrôlés dans le code, ce qui le rend plus robuste et testable.
-Idéal pour des formulaires complexes ou dynamiques.
-
-10)
-La directive ngModel permet de créer une liaison bidirectionnelle (two-way binding) entre une propriété de la classe TypeScript et un élément du template HTML.
-Cela signifie que :
-
-La valeur du champ HTML est automatiquement mise à jour lorsque la variable TypeScript change.
-
-La variable TypeScript est automatiquement mise à jour lorsque l’utilisateur modifie la valeur dans le champ HTML."
+9)Change Detection = mécanisme qui synchronise automatiquement le template avec les données du composant.
