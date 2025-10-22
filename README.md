@@ -41,7 +41,6 @@ Outil qui transforme/formate les données avant affichage :
 - Transformation de dates, texte, nombres, devises
 
 **Exemple :**
-```html
 {{ date | date:'short' }}
 
 
