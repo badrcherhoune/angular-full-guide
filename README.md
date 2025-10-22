@@ -17,7 +17,11 @@ Un composant se compose de trois éléments principaux :
 
 ## 3) 🔹 Accès aux éléments enfants
 - **@ViewChild()** : Accède à un élément/composant dans le template du composant
+![Texte alternatif](./images/viwChild1.PNG)
+![Texte alternatif](./images/viwChild2.PNG)
 - **@ContentChild()** : Accède à un élément/composant passé via le contenu projeté (`<ng-content>`)
+![Texte alternatif](./images/contentChild1.PNG)
+![Texte alternatif](./images/contentChild2.PNG)
 
 **Différence claire :**
 - `@ViewChild()` → Élément dans le template interne du composant
