@@ -11,10 +11,11 @@ Un service Angular est une **classe TypeScript** décorée avec `@Injectable` qu
 - Est **réutilisable** dans toute l'application
 
 **Création d'un service avec Angular CLI :**
-
+```t
 ng generate service nom-du-service
 # ou version courte :
 ng g s nom-du-service
+```
 
 # 2. Décorateur @Injectable et Configuration
 
@@ -53,4 +54,32 @@ L'**Injector** est le mécanisme d'Angular qui gère la création et la fournitu
 L'Injector maintient un conteneur des dépendances et les fournit lorsqu'elles sont demandées via le constructeur :
 
 ```typescript
-constructor(private monService: MonService) {}
+import { Injectable } from '@angular/core';
+
+export interface User {
+  id: number;
+  name: string;
+}
+
+@Injectable({
+  providedIn: 'root' // service singleton global
+})
+export class UserService {
+  private users: User[] = [
+    { id: 1, name: 'Alice' },
+    { id: 2, name: 'Bob' }
+  ];
+
+  constructor() {}
+
+  // Obtenir tous les utilisateurs
+  getUsers(): User[] {
+    return this.users;
+  }
+
+  // Ajouter un utilisateur
+  addUser(user: User) {
+    this.users.push(user);
+  }
+}
+```
