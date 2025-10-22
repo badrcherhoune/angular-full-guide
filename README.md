@@ -8,7 +8,12 @@ Un composant se compose de trois éléments principaux :
 
 ## 2) 🔹 Communication Parent-Enfant
 - **@Input()** : Permet au parent d'envoyer des données à son enfant
+![Texte alternatif](./images/input.PNG)
+![Texte alternatif](./images/input1.PNG)
 - **@Output()** : Permet à l'enfant d'envoyer des événements ou données à son parent
+![Texte alternatif](./images/output1.PNG)
+![Texte alternatif](./images/output2.PNG)
+
 
 ## 3) 🔹 Accès aux éléments enfants
 - **@ViewChild()** : Accède à un élément/composant dans le template du composant
