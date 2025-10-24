@@ -19,6 +19,29 @@ On peut définir trois types de réactions :
 - `error` → si une erreur survient  
 - `complete` → lorsque le flux se termine
 
+# 2) 🧊 Observable froid (Cold Observable)
+
+Un **Observable froid** est un flux **qui démarre uniquement lorsqu’un observer s’y abonne**.  
+Chaque abonné reçoit **ses propres données indépendantes**, comme si le flux redémarrait pour lui seul.
+
+### 🧠 Exemple conceptuel
+C’est comme **regarder une vidéo en ligne** :  
+chaque spectateur commence depuis le début au moment où il clique sur “play”.  
+Les données sont **rejouées à chaque nouvelle souscription**.
+
+---
+
+# 2) 🔥 Observable chaud (Hot Observable)
+
+Un **Observable chaud** émet des valeurs **indépendamment du nombre d’abonnés**.  
+Autrement dit, il **produit déjà des données avant même qu’un observer s’y abonne**.
+
+### 🧠 Exemple conceptuel
+C’est comme **regarder un live (diffusion en direct)** :  
+si tu rejoins en retard, tu manques ce qui a déjà été diffusé.  
+Tous les abonnés **partagent le même flux**.
+
+
 ### 4. Opérateurs
 RxJS fournit de nombreux **opérateurs** pour transformer, filtrer, combiner ou gérer le temps dans les flux.  
 Exemples : `map`, `filter`, `merge`, `debounceTime`, `switchMap`.
@@ -60,4 +83,5 @@ RxJS transforme des événements et données asynchrones en **flux observables**
 - Transforme chaque valeur en un Observable.
 - Les Observables sont exécutés **séquentiellement**, un par un.
 - Le suivant ne commence que lorsque le précédent est terminé.
+
 
