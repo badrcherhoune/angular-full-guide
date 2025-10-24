@@ -18,7 +18,8 @@ On peut définir trois types de réactions :
 - `next` → chaque nouvelle valeur émise  
 - `error` → si une erreur survient  
 - `complete` → lorsque le flux se termine
-  ```typescript
+  
+```typescript
 const numbers$ = of(1, 2, 3);
 
 numbers$.subscribe({
@@ -92,5 +93,6 @@ RxJS transforme des événements et données asynchrones en **flux observables**
 - Transforme chaque valeur en un Observable.
 - Les Observables sont exécutés **séquentiellement**, un par un.
 - Le suivant ne commence que lorsque le précédent est terminé.
+
 
 
