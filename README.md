@@ -72,3 +72,54 @@ this.form = new FormGroup({
 | Testabilité            | Difficile       | Facile            |
 | Complexité du projet   | Simple          | Complexe          |
 
+## 2. FormGroup, FormControl et FormBuilder en Angular
+
+## FormGroup
+- Sert à **regrouper plusieurs champs de formulaire** en un seul objet logique.  
+- Permet de gérer l’état et la validation de tous les champs du groupe en même temps.  
+- **Définition simple :** FormGroup est une **"forme groupe"** qui regroupe les champs d’un formulaire.
+
+## FormControl
+- Représente **un champ de formulaire individuel**.  
+- Permet d’ajouter des **contraintes (validators)** et de contrôler l’état du champ (`value`, `valid`, `touched`, etc.).  
+- **Définition simple :** FormControl est utilisé pour **ajouter des contraintes et gérer le contrôle sur chaque champ**.
+
+## FormBuilder
+- `FormBuilder` est un **service Angular** qui permet de **simplifier et faciliter la création de formulaires réactifs**.  
+- Crée rapidement des **FormGroup** et **FormControl** sans avoir à les instancier manuellement.  
+- Permet d’**initialiser les valeurs** des champs et d’ajouter des **validators** de manière plus concise.  
+- Rend le code plus **lisible et maintenable**, surtout pour les formulaires complexes ou avec beaucoup de champs.
+
+## Exemple avec FormBuilder
+```ts
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+constructor(private fb: FormBuilder) {}
+
+this.form = this.fb.group({
+  email: ['', [Validators.required, Validators.email]],
+  password: ['', Validators.required]
+});
+```
+## 3. FormBuilder en Angular
+
+## Définition
+`FormBuilder` est un **service Angular** qui permet de **simplifier et faciliter la création de formulaires réactifs**.  
+
+## Utilité
+- Crée rapidement des **FormGroup** et **FormControl** sans avoir à les instancier manuellement.  
+- Permet d’**initialiser les valeurs** des champs et d’ajouter des **validators** de manière plus concise.  
+- Rend le code plus **lisible et maintenable**, surtout pour les formulaires complexes ou avec beaucoup de champs.
+
+## Exemple
+```ts
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+constructor(private fb: FormBuilder) {}
+
+this.form = this.fb.group({
+  email: ['', [Validators.required, Validators.email]],
+  password: ['', Validators.required]
+});
+```
+
