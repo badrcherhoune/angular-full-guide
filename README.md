@@ -192,6 +192,44 @@ Les erreurs s’affichent à l’aide des propriétés du `ngModel`.
 - `#emailCtrl="ngModel"` donne accès à l’état du champ (`valid`, `touched`, `errors`...).
 - `emailCtrl.errors?.['required']` vérifie si la clé `required` est présente.
 
+## 6. Qu’est-ce que `ngSubmit` ?
+
+`ngSubmit` est un **événement Angular** utilisé sur la balise `<form>` pour **gérer la soumission d’un formulaire**.  
+Il est déclenché **lorsque l’utilisateur clique sur le bouton de type `submit`** ou appuie sur **Entrée** dans un champ du formulaire.
+
+---
+
+## 🧠 Définition
+
+- `ngSubmit` est une **directive Angular** qui écoute l’événement `submit` natif du navigateur.  
+- Elle s’assure que la soumission est **gérée par Angular**, ce qui permet d’utiliser les **données du formulaire** et les **contrôles de validation**.
+
+---
+
+## 💡 Différence avec `(submit)`
+
+| Directive | Description |
+|------------|--------------|
+| `(submit)` | Événement natif du HTML, ne prend pas en compte l’état Angular du formulaire. |
+| `(ngSubmit)` | Événement Angular qui permet d’accéder au `NgForm` ou au `FormGroup`. |
+
+---
+
+## 🔹 Exemple — Template-Driven Form
+
+```html
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <input name="email" [(ngModel)]="email" required>
+  <button type="submit">Envoyer</button>
+</form>
+```
+```typescripte
+onSubmit(form: NgForm) {
+  if (form.valid) {
+    console.log('Formulaire soumis avec :', form.value);
+  }
+}
+```
 
 
 
