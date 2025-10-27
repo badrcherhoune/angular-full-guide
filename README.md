@@ -122,5 +122,36 @@ this.form = this.fb.group({
   password: ['', Validators.required]
 });
 ```
+## 4. Validation Synchrone vs Asynchrone en Angular
+
+## Validation Synchrone
+- **Définition :** La validation est effectuée **immédiatement** lors de la modification de la valeur du champ.  
+- **Caractéristiques :**
+  - Retourne instantanément un **objet d’erreur ou null**.  
+  - Ne dépend pas d’opérations externes.  
+  - Utilise `Validators` standard ou des validateurs personnalisés synchrones.  
+- **Exemple :**
+```ts
+email: new FormControl('', [Validators.required, Validators.email])
+```
+
+## Validation Asynchrone
+
+### Définition
+La validation se fait de **manière différée**, souvent après une requête HTTP ou une opération asynchrone.
+
+### Caractéristiques
+- Retourne un **Observable** ou une **Promise**.  
+- Utile pour vérifier des conditions côté serveur, comme l’unicité d’un email.  
+- Utilise des **validateurs asynchrones** définis par l’utilisateur.
+
+### Exemple
+```ts
+username: new FormControl('', {
+  validators: [Validators.required],
+  asyncValidators: [this.usernameTakenValidator.bind(this)]
+});
+```
+
 
 
