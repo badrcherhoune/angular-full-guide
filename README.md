@@ -18,7 +18,7 @@
     <input name="email" ngModel required>
     <button type="submit">Envoyer</button>
   </form>
-```
+  ```
 ### Avantages
 
 - Simple et rapide pour des formulaires simples.  
@@ -122,4 +122,5 @@ this.form = this.fb.group({
   password: ['', Validators.required]
 });
 ```
+
 
