@@ -152,6 +152,47 @@ username: new FormControl('', {
   asyncValidators: [this.usernameTakenValidator.bind(this)]
 });
 ```
+## 5. Afficher les messages d’erreur dans un formulaire Angular
+
+Afficher les **messages d’erreur** dépend du type de formulaire utilisé :  
+- **Template-Driven Forms**
+- **Reactive Forms**
+
+---
+
+## 🟢 1. Template-Driven Forms
+
+Les validations sont définies directement dans le **HTML** avec des attributs (`required`, `minlength`, etc.).  
+Les erreurs s’affichent à l’aide des propriétés du `ngModel`.
+
+### Exemple
+
+```html
+<form #form="ngForm">
+  <input 
+    name="email" 
+    [(ngModel)]="email" 
+    required 
+    email 
+    #emailCtrl="ngModel">
+
+  <!-- Affichage des erreurs -->
+  <div *ngIf="emailCtrl.invalid && emailCtrl.touched">
+    <small *ngIf="emailCtrl.errors?.['required']">
+      L’email est requis.
+    </small>
+    <small *ngIf="emailCtrl.errors?.['email']">
+      L’email n’est pas valide.
+    </small>
+  </div>
+</form>
+```
+### 🧾 Détails
+
+- `#emailCtrl="ngModel"` donne accès à l’état du champ (`valid`, `touched`, `errors`...).
+- `emailCtrl.errors?.['required']` vérifie si la clé `required` est présente.
+
+
 
 
 
